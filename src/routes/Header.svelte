@@ -17,13 +17,13 @@
 		</svg>
 		<ul>
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
+				<a href="/">.\who -am -i</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
+				<a href="/about">.\what -i -do</a>
 			</li>
 			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
+				<a href="/connect">.\how -to -connect</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
@@ -117,7 +117,7 @@
 		color: var(--color-text);
 		font-weight: 700;
 		font-size: 0.8rem;
-		text-transform: uppercase;
+		/* text-transform: uppercase; */
 		letter-spacing: 0.1em;
 		text-decoration: none;
 		transition: color 0.2s linear;

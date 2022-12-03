@@ -5,7 +5,7 @@
 
 <svelte:head>
   <title>I'm Jermaine John</title>
-  <meta name="description" content="Svelte demo app" />
+  <meta name="description" content="Jermaine's professional" />
 </svelte:head>
 
 <section>
@@ -24,7 +24,7 @@
     a technical <strong>savaunt</strong>
   </h2>
 
-  <Counter />
+  <!-- <Counter /> -->
 </section>
 
 <style>
