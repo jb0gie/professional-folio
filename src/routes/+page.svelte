@@ -1,6 +1,7 @@
 <script>
-  import Counter from './Counter.svelte';
-  import pfp_closeup from '$lib/images/jj2.png';
+  import { Canvas } from '@threlte/core';
+  import MainThrene from './MainThrene.svelte';
+  import pfp_closeup from '$lib/images/jj.png';
 </script>
 
 <svelte:head>
@@ -8,51 +9,29 @@
   <meta name="description" content="Jermaine's professional" />
 </svelte:head>
 
-<section>
-  <h1>
-		<picture>
-			<img src={pfp_closeup} alt="Welcome" />
-		</picture>
-    <span class="welcome">
-      <!-- replace with threlte cube starter -->
-      <em>Hey I'm,</em>
-      <strong>JERMAINE JOHN</strong>
-    </span>
-  </h1>
-
-  <h2>
-    a technical <strong>savaunt</strong>
-  </h2>
-
-  <!-- <Counter /> -->
-</section>
-
-<style>
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 0.6;
-  }
-
-  h1 {
-    width: 100%;
-  }
-
-  .welcome {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding: 20;
-  }
-
-  .welcome img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    display: block;
-  }
-</style>
+<!-- <Canvas>
+  <MainThrene />
+</Canvas> -->
+<div class="h-full w-full">
+  <section class="flex flex-col justify-center items-center">
+    <img
+      class="h-24 sm:h-80 rounded-full"
+      src={pfp_closeup}
+      alt="2017 - Kin NYC"
+    />
+    <br />
+    <h1 class="text-4xl">
+      <span class="block relative w-full h-0">
+        
+        <em>Hey I'm,</em>
+        <strong>JERMAINE JOHN</strong>
+      </span>
+    </h1>
+    <br />
+    <br />  
+    <h2>
+      the <em>technical</em>
+      <strong>savaunt</strong>
+    </h2>
+  </section>
+</div>

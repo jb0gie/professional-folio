@@ -9,7 +9,9 @@ const config = {
 	kit: {
 		adapter: adapter()
 	},
-	preprocess: seqPreprocessor([preprocess(), preprocessThrelte()])
+	preprocess: seqPreprocessor([
+		preprocess({postcss: true,}), preprocessThrelte()
+	])
 };
 
 export default config;

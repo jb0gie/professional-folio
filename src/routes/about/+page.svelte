@@ -1,26 +1,35 @@
+<script>
+  import Info from './Info.svelte';
+  const placesLived = {
+    us: 'Brooklyn, NYC',
+    gd: 'St.Georges, GN',
+    ca: 'Ajax, CA',
+    uk: 'Ealing, UK',
+  };
+	import Info2 from './Info2.svelte';
+</script>
+
 <svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
+  <title>About Jermaine John</title>
+  <meta name="description" content="About this app" />
 </svelte:head>
 
 <div class="text-column">
-	<h1>About this app</h1>
-
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<pre>npm create svelte@latest</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
-		using it with JavaScript disabled!
-	</p>
+  <h1 class="text-3xl">Yes, I am Jermaine.</h1>
+  <br />
+  <article>
+    <h2>
+      I am a media specialist with a passion for using webXR and artificial
+      intelligence in my art. I have always been drawn to the intersection of
+      technology and creativity.
+    </h2>
+  </article>
+	<br />
+  <Info {...placesLived} />
+	<br />
+	<Info2 />
+  <p>
+    If you would like to <a href="/connect">.\connect</a>
+    I'd love to see how I can help you fulfill you're wishes.
+  </p>
 </div>
