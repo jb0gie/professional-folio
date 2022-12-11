@@ -13,7 +13,7 @@
 
 	<footer>
 		<p>
-			© 2022 all rights reserved.		
+			<a href="https://google.com">© 2023 all rights reserved.</a>		
 		</p>
 	</footer>
 </div>

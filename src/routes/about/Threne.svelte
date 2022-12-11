@@ -6,27 +6,23 @@
     PerspectiveCamera,
     useThrelte,
   } from '@threlte/core';
-  import { Environment, useGltf } from '@threlte/extras';
+  import { Environment, GLTF } from '@threlte/extras';
   import { onDestroy } from 'svelte';
-  import { derived } from 'svelte/store';
   import { GridHelper, Mesh as ThreeMesh } from 'three';
+  
   const { scene } = useThrelte();
-  const { gltf } = useGltf('/models/blobs/blobs.glb', {
-    useDraco: true,
-  });
-  const meshes = derived(gltf, gltf => {
-    if (!gltf) return undefined;
-    return Object.values(gltf.nodes);
-  });
+  
+
   const gridHelper = new GridHelper(30);
   gridHelper.position.y = -10;
   scene.add(gridHelper);
+  
   onDestroy(() => {
     scene.remove(gridHelper);
   });
 </script>
 
-<Environment path="$libimages/hdr/" files="cinema_lobby_4k.exr" />
+<Environment path="hdr/" files="Studio_01.hdr" />
 
 <PerspectiveCamera position={{ z: 20 }} fov={50}>
   <OrbitControls target={{ y: -2 }} enableDamping />
@@ -36,8 +32,8 @@
 
 <AmbientLight intensity={0.3} />
 
-{#if $meshes}
-  {#each $meshes as mesh}
-    <Blob geometry={mesh.geometry} />
-  {/each}
-{/if}
+<!-- each flag place in mid norm 2.5 of 5x5 quad -->
+<GLTF url="models/ca.glb" /> 
+<GLTF url="models/gd.glb" />
+<GLTF url="models/us.glb" />
+<GLTF url="models/uk.glb" />
