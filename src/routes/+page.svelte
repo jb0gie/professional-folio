@@ -25,13 +25,14 @@
   <br />
   <h1 class="text-5xl">
     <span class="block relative w-full h-0">
-      <em>Hey I'm,</em>
-      <strong
+      <em
         style="color: transparent; background-clip: text;
   -webkit-background-clip: text; background-image: url('https://media2.giphy.com/media/JlVxiw2MrW4DwKeG4e/giphy.gif?cid=ecf05e47havsfdo7vnub33cofwhw8suyhqvh1e5t1wr1veb4&rid=giphy.gif&ct=g');"
       >
-        JERMAINE JOHN
-      </strong>
+        Hey
+      </em>
+      I'm,
+      <strong>JERMAINE JOHN</strong>
     </span>
   </h1>
   <br />
@@ -39,6 +40,11 @@
   <br />
   <h2 class="text-3xl">
     the <em>technical</em>
-    <strong>savaunt</strong>
+    <strong
+      style="color: transparent; background-clip: text;
+  -webkit-background-clip: text; background-image: url('https://media2.giphy.com/media/bTDdkhpX34Hwp1eaiS/200w.webp?cid=ecf05e47havsfdo7vnub33cofwhw8suyhqvh1e5t1wr1veb4&rid=200w.webp&ct=g');"
+    >
+      savant
+    </strong>
   </h2>
 </section>

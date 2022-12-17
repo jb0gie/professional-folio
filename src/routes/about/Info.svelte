@@ -1,13 +1,15 @@
 <script>
   import { Canvas } from '@threlte/core'; 
   import Threne from './Threne.svelte';
-  /**
-   * @type {any}
-   */
-  export let uk;
+  const placesLived = {
+    us: 'Brooklyn, NYC',
+    gd: 'St.Georges, GN',
+    ca: 'Ajax, CA',
+    uk: 'Ealing, UK',
+  };
 </script>
-<p>I was born in {uk} and raised in various places, such as:</p>
-<!-- <wrapper class="relative h-full"></wrapper> -->
+
+<p>I was born in {placesLived.uk} and raised in various places, such as:</p>
 <Canvas>
-  <Threne/>
+  <Threne {...placesLived}/>
 </Canvas>
