@@ -1,6 +1,7 @@
 <script>
   // @ts-nocheck
   import { onDestroy } from 'svelte';
+  import { tweened } from 'svelte/motion';
   import {
     FogExp2,
     Pass,
@@ -8,77 +9,99 @@
     OrbitControls,
     PerspectiveCamera,
     useThrelte,
-    T,
+    Mesh,
+    Group,
+    Object3D,
+    useFrame,
   } from '@threlte/core';
-  import { Environment, GLTF, Text } from '@threlte/extras';
+  import { Environment, GLTF, Text, Float } from '@threlte/extras';
   import {
+    BoxGeometry,
     GridHelper,
     IcosahedronGeometry,
     MeshNormalMaterial,
   } from 'three';
-  import { DEG2RAD } from 'three/src/math/MathUtils';
+  // import { DEG2RAD } from 'three/src/math/MathUtils';
   import { GlitchPass } from 'three/examples/jsm/postprocessing/GlitchPass';
+
+  export let ca;
+  export let gd;
+  export let us;
+  export let uk;
+
+  let mesh;
 
   const { scene } = useThrelte();
   const gridHelper = new GridHelper(30);
+
   gridHelper.position.y = -10;
+
   scene.add(gridHelper);
+
   onDestroy(() => {
     scene.remove(gridHelper);
   });
-  
-  /**
-   * @type {any}
-   */
-  export let ca;
-  /**
-   * @type {any}
-   */
-  export let gd;
-  /**
-   * @type {any}
-   */
-  export let us;
-  /**
-   * @type {any}
-   */
-  export let uk;
 
-  // let target;
+  // const onClickCa = (e: CustomEvent<ThreltePointerEvent>) => {}
+  // const onClickUs = (e: CustomEvent<ThreltePointerEvent>) => {}
+  // const onClickGd = (e: CustomEvent<ThreltePointerEvent>) => {}
+  // const onClickUk = (e: CustomEvent<ThreltePointerEvent>) => {}
+
+  const t = tweened(0, { duration: 2000 });
+
+  let r = 0;
+  useFrame(() => {
+    r += 0.05;
+  });
 </script>
 
 <!-- <Pass pass={new GlitchPass()} /> -->
 <FogExp2 color={'#dddddd'} density={0.05} />
 <Environment path="hdr/" files="Studio_01.hdr" />
-<PerspectiveCamera position={{ z: 20 }} fov={90}>
+
+<PerspectiveCamera position={{ z: 20 }} fov={90} lookAt={mesh}>
   <OrbitControls target={{ y: -2 }} enableDamping />
 </PerspectiveCamera>
 
-<T.DirectionalLight position={{ y: 10, z: 10 }} />
-<T.AmbientLight intensity={0.3} />
+<SpotLight position={{ y: 10 }} color="green" target={{ x: 0, y: 0, z: 0 }} />
 
-<SpotLight position={{ x: -7.5, y: 1, z: 7.5 }} color="red" />
-<SpotLight position={{ x: 7.5, y: 1, z: 7.5 }} color="green" />
-<SpotLight position={{ x: 7.5, y: 1, z: -7.5 }} color="yellow" />
-<SpotLight position={{ x: -7.5, y: 1, z: 7.5 }} color="blue" />
+<!-- <Mesh
+  geometry={new BoxGeometry()}
+  material={new MeshStandardMaterial()}
+  position={{y:-10.5}}
+  scale={{x:30,z:30}}
+/> -->
 
-<T.Mesh
-  geometry={new IcosahedronGeometry()}
-  material={new MeshNormalMaterial()}
-/>
-<T.Group>
-</T.Group>
+<Object3D>
+  <Mesh
+    geometry={new IcosahedronGeometry()}
+    material={new MeshNormalMaterial()}
+    position={{ x: $t }}
+    rotation={{ y: r }}
+  />
+</Object3D>
 
-<T.Group>
+<Group>
   <GLTF
     castShadow
     receiveShadow
     url="models/ca.glb"
     position={{ x: -7.5, z: -7.5 }}
     scale={5}
-    on:pointerenter={() => {}}
+    interactive
+    on:pointerenter={() => ($t >= 0 ? -7.5 : 0)}
     on:pointerleave={() => {}}
+    
   />
+  <Text
+    text={ca}
+    position={{ x: -9.5, y: -2, z: -7.5 }}
+    scale={8}
+    color="black"
+  />
+</Group>
+
+<Group>
   <GLTF
     castShadow
     receiveShadow
@@ -86,6 +109,10 @@
     position={{ x: 7.5, z: 7.5 }}
     scale={5}
   />
+  <Text text={gd} position={{ x: 4, y: -2, z: 7.5 }} scale={8} color="black" />
+</Group>
+
+<Group>
   <GLTF
     castShadow
     receiveShadow
@@ -93,41 +120,23 @@
     position={{ x: 7.5, z: -7.5 }}
     scale={5}
   />
-  <GLTF
+  <Text text={us} position={{ x: 4, y: -2, z: -7.5 }} scale={8} color="black" />
+</Group>
+
+<Group>
+  <GLTF bind:mesh
     castShadow
     receiveShadow
     url="models/uk.glb"
     position={{ x: -7.5, z: 7.5 }}
     scale={5}
   />
-</T.Group>
-
-<T.Group>
   <Text
     text={uk}
     position={{ x: -10, y: -2, z: 7.5 }}
-    scale={10}
+    scale={8}
     color="black"
   />
-  <Text
-    text={ca}
-    position={{ x: -9.5, y: -2, z: -7.5 }}
-    scale={10}
-    color="black"
-  />
-  <Text text={gd} position={{ x: 4, y: -2, z: 7.5 }} scale={10} color="black" />
-  <Text
-    text={us}
-    position={{ x: 4, y: -2, z: -7.5 }}
-    scale={10}
-    color="black"
-  />
-</T.Group>
+</Group>
 
-<GLTF
-  castShadow
-  receiveShadow
-  url="models/column.glb"
-  position={{ y: -10 }}
-  scale={7.5}
-/>
+<GLTF receiveShadow url="models/column.glb" position={{ y: -10 }} scale=

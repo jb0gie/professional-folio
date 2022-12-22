@@ -2,7 +2,7 @@
   import { Canvas } from '@threlte/core'; 
   import Threne from './Threne.svelte';
   const placesLived = {
-    us: 'Brooklyn, NYC',
+    us: 'Brooklyn, us',
     gd: 'St.Georges, GN',
     ca: 'Ajax, CA',
     uk: 'Ealing, UK',
