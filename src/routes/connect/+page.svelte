@@ -34,7 +34,7 @@
   <div
     class="max-w-md mx-auto justify-center items-center flex flex-col lg:flex-row"
   >
-    <div class="space-y-4 text-gray-700 text-3xl sm:text-3xl lg:text-3xl">
+    <div class="space-y-4 text-gray-700 text-2xl sm:text-2xl lg:text-3xl">
       <div class="pt-6 font-bold sm:text-2xl lg:text-2xl">
         <h1
           class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200"
