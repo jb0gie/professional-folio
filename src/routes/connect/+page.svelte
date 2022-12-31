@@ -1,5 +1,4 @@
 <script>
-  import pfp_closeup from '$lib/images/jj.png';
   let status = '';
   const handleSubmit = async (/** @type any **/ data) => {
     status = 'Submitting...';
@@ -70,49 +69,49 @@
             />
             <div class="flex flex-row">
               <label
-              for="name"
-              class="text-gray-900 font-bold py-2 px-4 rounded-full"
-            >
-              What is your name ❓
-            </label>
-            <input
-              type="text"
-              name="name"
-              required
-              class="shadow appearance-none border-2 border-gradient-to-r from-pink-500 to-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue"
-            />
+                for="name"
+                class="text-gray-900 font-bold py-2 px-4 rounded-full"
+              >
+                What is your name ❓
+              </label>
+              <input
+                type="text"
+                name="name"
+                required
+                class="shadow appearance-none border-2 border-gradient-to-r from-pink-500 to-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue"
+              />
             </div>
-            <br>
+            <br />
             <div class="flex flex-row">
               <label
-              for="email"
-              class="text-gray-900 font-bold py-2 px-4 rounded-full"
-            >
-              What is your email ❓
-            </label>
-            <input
-              type="email"
-              name="email"
-              required
-              class="shadow appearance-none border-2 border-gradient-to-r from-pink-500 to-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue"
-            />
+                for="email"
+                class="text-gray-900 font-bold py-2 px-4 rounded-full"
+              >
+                What is your email ❓
+              </label>
+              <input
+                type="email"
+                name="email"
+                required
+                class="shadow appearance-none border-2 border-gradient-to-r from-pink-500 to-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue"
+              />
             </div>
-            <br>
+            <br />
             <div class="flex flex-row">
               <label
-              for="message"
-              class="text-gray-900 font-bold py-2 px-4 rounded-full"
-            >
-              Insert message here 📝
-            </label>
-            <textarea
-              name="message"
-              required
-              rows="3"
-              class="shadow appearance-none border-2 border-gradient-to-r from-pink-500 to-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue"
-            />
+                for="message"
+                class="text-gray-900 font-bold py-2 px-4 rounded-full"
+              >
+                Insert message here 📝
+              </label>
+              <textarea
+                name="message"
+                required
+                rows="3"
+                class="shadow appearance-none border-2 border-gradient-to-r from-pink-500 to-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue"
+              />
             </div>
-            <br>
+            <br />
             <input
               type="submit"
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
