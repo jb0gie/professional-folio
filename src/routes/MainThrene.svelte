@@ -1,119 +1,74 @@
-<script lang="ts">
-	import {
-		AmbientLight,
-		DirectionalLight,
-		Mesh,
-		OrbitControls,
-		PerspectiveCamera,
-		useFrame,
-		useThrelte
-	} from '@threlte/core';
-	import * as THREE from 'three';
-
-	import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
-	import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
-
-	import HelperGrid from '$lib/components/HelperGrid.svelte';
-	import { default as fragmentShader } from '$lib/shaders/fragmentShader.glsl?raw';
-	import { default as vertexShader } from '$lib/shaders/vertexShader.glsl?raw';
-
-	const lospec = [
-		0x10121c, 0x2c1e31, 0x6b2643, 0xac2847, 0xec273f, 0x94493a, 0xde5d3a, 0xe98537, 0xf3a833,
-		0x4d3533, 0x6e4c30, 0xa26d3f, 0xce9248, 0xdab163, 0xe8d282, 0xf7f3b7, 0x1e4044, 0x006554,
-		0x26854c, 0x5ab552, 0x9de64e, 0x008b8b, 0x62a477, 0xa6cb96, 0xd3eed3, 0x3e3b65, 0x3859b3,
-		0x3388de, 0x36c5f4, 0x6dead6, 0x5e5b8c, 0x8c78a5, 0xb0a7b8, 0xdeceed, 0x9a4d76, 0xc878af,
-		0xcc99ff, 0xfa6e79, 0xffa2ac, 0xffd1d5, 0xf6e8e0, 0xffffff
-	];
-
-	let textGeo: any;
-
-	let textGeo2: any;
-
-	new FontLoader().load('fonts/Sawton Circular Medium_Regular.json', function (response) {
-		textGeo = new TextGeometry('Hey, I am ', {
-			font: response,
-			size: 20,
-			height: 3,
-			curveSegments: 5,
-			bevelThickness: 0.5,
-			bevelSize: 1,
-			bevelEnabled: true,
-			bevelSegments: 2
-		});
-
-		textGeo.computeBoundingBox();
-
-		textGeo2 = new TextGeometry('Jermaine John', {
-			font: response,
-			size: 26,
-			height: 3,
-			curveSegments: 35,
-			bevelThickness: 0.5,
-			bevelSize: 0.5,
-			bevelEnabled: true,
-			bevelSegments: 15
-		});
-
-		textGeo2.computeBoundingBox();
-	});
-
-	const renderTarget = new THREE.WebGLRenderTarget(window.innerWidth, window.innerHeight, {
-		minFilter: THREE.NearestFilter,
-		magFilter: THREE.NearestFilter
-	});
-
-	const { renderer, scene } = useThrelte();
-
-	let camera: any;
-
-	const refractionMaterial = new THREE.ShaderMaterial({
-		uniforms: {
-			uRefractPower: { value: 0.2 },
-			uSceneTex: { value: renderTarget.texture },
-			uTransparent: { value: 0.5 },
-			uNoise: { value: 0.001 },
-			uHue: { value: 0.0 },
-			uSat: { value: 1.0 },
-			winResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
-		},
-		vertexShader,
-		fragmentShader
-	});
-
-	let boxCount = 10;
-
-	useFrame(({ clock }) => {
-		if (!renderer) return;
-		renderer.setRenderTarget(renderTarget);
-		renderer.render(scene, camera);
-		renderer.setRenderTarget(null);
-		renderer.render(scene, camera);
-	});
+<script>
+    import { onDestroy } from 'svelte';
+    import { spring } from 'svelte/motion';
+    import { Color, GridHelper, MeshStandardMaterial, SphereGeometry } from 'three';
+    import { DEG2RAD } from 'three/src/math/MathUtils';
+    import { AmbientLight, DirectionalLight, Mesh, OrbitControls, PerspectiveCamera, useThrelte } from '@threlte/core';
+    import { HTML } from '@threlte/extras';
+    const getRandomColor = () => `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    let material = new MeshStandardMaterial({
+        color: new Color(getRandomColor()).convertSRGBToLinear()
+    });
+    const onClick = () => {
+        material.color.set(getRandomColor());
+        material = material;
+    };
+    let isHovering = false;
+    let isPointerDown = false;
+    const { scene } = useThrelte();
+    const gridHelper = new GridHelper();
+    scene.add(gridHelper);
+    onDestroy(() => {
+        scene.remove(gridHelper);
+    });
+    let htmlPosZ = spring();
+    $: htmlPosZ.set(isPointerDown ? -0.15 : isHovering ? -0.075 : 0, {
+        hard: isPointerDown
+    });
 </script>
 
-<PerspectiveCamera position={{ x: 70, y: 20, z: 100 }} fov={60} near={1} far={2000} bind:camera>
-	<OrbitControls  enableZoom={true} target={{ x: 70, y: 0, z: 0 }} />
+<PerspectiveCamera position={{ z: 10, y: 5, x: 10 }} fov={30}>
+  <OrbitControls
+    target={{ y: 0.75 }}
+    maxPolarAngle={85 * DEG2RAD}
+    minPolarAngle={20 * DEG2RAD}
+    maxAzimuthAngle={45 * DEG2RAD}
+    minAzimuthAngle={-45 * DEG2RAD}
+    enableZoom={false}
+  />
 </PerspectiveCamera>
 
-<!-- <Environment path="/03_env/" files="spaichingen_hill_1k.hdr" isBackground /> -->
+<DirectionalLight position={{ y: 10, z: 10 }} />
 
-{#if textGeo}
-	<Mesh material={refractionMaterial} geometry={textGeo} />
-	<Mesh
-		material={new THREE.MeshStandardMaterial({ color: lospec[15] })}
-		geometry={textGeo2}
-		position={{ x: -0, z: -30 }}
-	/>
-{/if}
+<AmbientLight intensity={0.3} />
 
-<Mesh
-	material={new THREE.MeshStandardMaterial({ color: 0x000000, side: THREE.DoubleSide })}
-	geometry={new THREE.SphereGeometry(500, 500)}
-	position={{ x: 0, y: 0, z: 0 }}
-/>
+<Mesh geometry={new SphereGeometry(0.5)} {material}>
+  <HTML position={{ y: 1.25, z: $htmlPosZ }} transform>
+    <button
+      on:pointerenter={() => (isHovering = true)}
+      on:pointerleave={() => {
+        isPointerDown = false
+        isHovering = false
+      }}
+      on:pointerdown={() => (isPointerDown = true)}
+      on:pointerup={() => (isPointerDown = false)}
+      on:pointercancel={() => {
+        isPointerDown = false
+        isHovering = false
+      }}
+      on:click={onClick}
+      class="bg-brand rounded-full px-3 text-white hover:opacity-90 active:opacity-70"
+    >
+      I'm a regular HTML button
+    </button>
+  </HTML>
 
-<HelperGrid />
-
-<DirectionalLight position={{ x: 15, y: 5, z: 10 }} intensity={0.7} />
-<DirectionalLight position={{ x: 5, y: 5, z: -10 }} intensity={0.7} />
-<AmbientLight intensity={1} />
+  <HTML transform pointerEvents="none">
+    <p
+      class="text-xs w-auto translate-x-1/2 drop-shadow-lg"
+      style="color: #{material.color.getHexString()}"
+    >
+      color: #{material.color.getHexString()}
+    </p>
+  </HTML>
+</Mesh>
