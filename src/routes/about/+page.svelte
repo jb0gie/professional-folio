@@ -1,6 +1,6 @@
 <script>
   import Info from './Info.svelte';
-  import pfp_closeup from '$lib/images/jj2.png';
+  import pfp_closeup from '$lib/images/pic2.png';
 
   const placesLived = {
     us: 'Brooklyn, NYC',

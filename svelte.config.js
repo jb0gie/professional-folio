@@ -6,12 +6,13 @@ import adapter from '@sveltejs/adapter-auto';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	kit: {
-		adapter: adapter()
-	},
-	preprocess: seqPreprocessor([
-		preprocess({postcss: true,}), preprocessThrelte()
-	])
+  kit: {
+    adapter: adapter()
+  },
+  preprocess: seqPreprocessor([
+    preprocess({ postcss: true }),
+    preprocessThrelte(),
+  ]),
 };
 
 export default config;

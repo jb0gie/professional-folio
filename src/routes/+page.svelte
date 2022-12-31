@@ -2,7 +2,7 @@
   // @ts-nocheck
   import { Canvas } from '@threlte/core';
   import MainThrene from './MainThrene.svelte';
-  import pfp_closeup from '$lib/images/jj.png';
+  import pfp_closeup from '$lib/images/pic1.png';
 </script>
 
 <svelte:head>
