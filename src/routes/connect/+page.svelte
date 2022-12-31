@@ -56,7 +56,7 @@
             </strong>
           </h1>
 
-          <p class="text-gray-400 dark:text-gray-400">
+          <p class="text-white-400 dark:text-gray-400">
             Fill up the form below to send me a message. 📭
           </p>
         </div>
@@ -70,7 +70,7 @@
             <div class="flex flex-row">
               <label
                 for="name"
-                class="text-gray-900 font-bold py-2 px-4 rounded-full"
+                class="text-white-900 font-bold py-2 px-4 rounded-full"
               >
                 What is your name ❓
               </label>
@@ -85,7 +85,7 @@
             <div class="flex flex-row">
               <label
                 for="email"
-                class="text-gray-900 font-bold py-2 px-4 rounded-full"
+                class="text-white-900 font-bold py-2 px-4 rounded-full"
               >
                 What is your email ❓
               </label>
@@ -100,7 +100,7 @@
             <div class="flex flex-row">
               <label
                 for="message"
-                class="text-gray-900 font-bold py-2 px-4 rounded-full"
+                class="text-white-900 font-bold py-2 px-4 rounded-full"
               >
                 Insert message here 📝
               </label>
