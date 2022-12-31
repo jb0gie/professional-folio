@@ -68,32 +68,26 @@
               value="7a2c25e5-667c-4619-9971-c1324332cdd0"
             />
             <div class="flex flex-row">
-              <label
-                for="name"
-                class="text-white-900 font-bold py-2 px-4 rounded-full"
-              >
+              <label for="name" class="font-bold py-2 px-4 rounded-full">
                 What is your name ❓
               </label>
               <input
                 type="text"
                 name="name"
                 required
-                class="shadow appearance-none border-2 border-gradient-to-r from-pink-500 to-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue"
+                class="rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline-blue"
               />
             </div>
             <br />
             <div class="flex flex-row">
-              <label
-                for="email"
-                class="text-white-900 font-bold py-2 px-4 rounded-full"
-              >
+              <label for="email" class="font-bold py-2 px-4 rounded-full">
                 What is your email ❓
               </label>
               <input
                 type="email"
                 name="email"
                 required
-                class="shadow appearance-none border-2 border-gradient-to-r from-pink-500 to-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue"
+                class="rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline-blue"
               />
             </div>
             <br />
@@ -108,7 +102,7 @@
                 name="message"
                 required
                 rows="3"
-                class="shadow appearance-none border-2 border-gradient-to-r from-pink-500 to-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue"
+                class="rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline-blue"
               />
             </div>
             <br />
