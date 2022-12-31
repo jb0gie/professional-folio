@@ -6,6 +6,7 @@
 </script>
 
 <svelte:head>
+  <title>I am me</title>
   <meta name="description" content="my professional personal page" />
 </svelte:head>
 

@@ -35,10 +35,10 @@
   import Ground from './Ground.svelte';
   import Player from './Player.svelte';
 
-  export let ca;
-  export let gn;
-  export let us;
-  export let uk;
+  // export let ca;
+  // export let gn;
+  // export let us;
+  // export let uk;
 
   let targetGroup;
   let playerMesh;
