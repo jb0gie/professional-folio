@@ -10,12 +10,10 @@
   <meta name="description" content="my professional personal page" />
 </svelte:head>
 
-<div class="relative py-3 sm:max-w-xl sm:mx-auto">
+<div class="text-column">
   <div
-    class="relative px-4 py-10 bg-white shadow-lg rounded-3xl p-20 bg-clip-padding bg-opacity-60 border border-gray-200 sm:p-12 lg:p-16"
-    style="backdrop-filter: blur(20px);"
-  >
-    <div class="max-w-md mx-auto justify-center items-center flex flex-col lg:flex-row">
+      class="max-w-md mx-auto justify-center items-center flex flex-col lg:flex-row"
+    >
       <img
         class="h-48 sm:h-48 lg:h-64 rounded-full mb-4 lg:mb-0"
         src={pfp_closeup}
@@ -52,20 +50,18 @@
         </div>
         <div class="pt-6 font-bold sm:text-lg lg:text-xl">
           <p class="text-right">
-            <a href="/about" class="hover:">more on me &rarr; 🔎 </a>
+            <a href="/about" class="hover:">more on me &rarr; 🔎</a>
           </p>
         </div>
       </div>
     </div>
-  </div>
 </div>
 
-
-
-
-
-
-
+<div class="relative py-3 sm:max-w-xl sm:mx-auto">
+  <div class="relative px-4 py-10 rounded-3xl p-20 sm:p-12 lg:p-16">
+    
+  </div>
+</div>
 
 <!-- this will replace the scene once i know more 
   <Canvas>
