@@ -30,10 +30,7 @@
         I am a media specialist with a passion for using webXR and artificial
         intelligence in my art. I have extensive experience with digital tools
         and platforms and enjoy using them to create immersive and engaging
-        experiences that explore the potential of these exciting technologies. I
-        have extensive experience with digital tools and platforms and enjoy
-        using them to create immersive and engaging experiences that explore the
-        potential of these exciting technologies.
+        experiences that explore the potential of these exciting technologies.
       </p>
     </div>
     <br />
