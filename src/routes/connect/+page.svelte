@@ -30,7 +30,71 @@
 
 <br />
 <br />
-<div class="text-column">
+
+<div class="card lg:card-side bg-base-100 shadow-xl">
+  <figure><img src={pfp_closeup} alt="Album"/></figure>
+  <div class="card-body">
+    <h2 class="card-title">New album is released!</h2>
+    <p>Click the button to listen on Spotiwhy app.</p>
+    <form on:submit|preventDefault={handleSubmit}>
+        <input
+          type="hidden"
+          name="access_key"
+          value="7a2c25e5-667c-4619-9971-c1324332cdd0"
+        />
+        <div class="flex flex-row">
+          <label for="name" class="font-bold py-2 px-4 rounded-full">
+            What is your name ❓
+          </label>
+          <input
+            type="text"
+            name="name"
+            required
+            class="rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline-blue"
+          />
+        </div>
+        <br />
+        <div class="flex flex-row">
+          <label for="email" class="font-bold py-2 px-4 rounded-full">
+            What is your email ❓
+          </label>
+          <input
+            type="email"
+            name="email"
+            required
+            class="rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline-blue"
+          />
+        </div>
+        <br />
+        <div class="flex flex-row">
+          <label
+            for="message"
+            class="text-white-900 font-bold py-2 px-4 rounded-full"
+          >
+            Insert message here 📝
+          </label>
+          <textarea
+            name="message"
+            required
+            rows="3"
+            class="rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline-blue"
+          />
+        </div>
+        <br />
+        <input
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+        />
+      </form>
+
+      <div>{status}</div>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Listen</button>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="text-column">
   <div
     class="max-w-md mx-auto justify-center items-center flex flex-col lg:flex-row"
   >
@@ -124,7 +188,7 @@
       <div>{status}</div>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="relative py-3 sm:max-w-xl sm:mx-auto">
   <div

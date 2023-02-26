@@ -1,11 +1,10 @@
 <script>
   import { page } from '$app/stores';
-  import './styles.css';
-  import '../app.css';
+  import '../app.postcss';
 </script>
 
-<footer class="tooltip tooltip-top" data-tip="Privacy Policy">
-    <p aria-current={$page.url.pathname === '/privacy' ? 'page' : undefined}>
+<div class="btm-nav">
+	<p aria-current={$page.url.pathname === '/privacy' ? 'page' : undefined}>
       <a href="/privacy">
         <strong
           style=" color: transparent; 
@@ -24,19 +23,4 @@
         </strong>
       </a>
     </p>
-  </footer>
-
-	<style>
-		footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-  }
-	@media (min-width: 480px) {
-    footer {
-      padding: 12px 0;
-    }
-  }
-	</style>
+</div>

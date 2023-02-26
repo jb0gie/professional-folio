@@ -1,132 +1,81 @@
-<script>
-  import { page } from '$app/stores';
+<script lang="ts">
+	import { confetti } from '@neoconfetti/svelte';
+	import { tick } from 'svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
+	let isVisible = false;
   import logo from '$lib/images/linkedin.svg';
   import github from '$lib/images/github.svg';
 </script>
 
-<header>
-  <div class="tooltip tooltip-right" data-tip="I'm on LinkedIn">
-    <div class="corner">
-      <a href="https://www.linkedin.com/in/web3genie/">
+<!-- <a href="https://www.linkedin.com/in/web3genie/">
         <img src={logo} alt="LinkedIn" />
       </a>
-    </div>
-  </div>
 
-  <nav>
-    <svg viewBox="0 0 2 3" aria-hidden="true">
-      <path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-    </svg>
-    <ul>
-      <li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-        <a href="/">🏠</a>
-      </li>
-      <li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-        <a href="/about">🔎</a>
-      </li>
-      <li aria-current={$page.url.pathname === '/connect' ? 'page' : undefined}>
-        <a href="/connect">📫</a>
-      </li>
-    </ul>
-    <svg viewBox="0 0 2 3" aria-hidden="true">
-      <path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-    </svg>
-  </nav>
-  <div class="tooltip tooltip-left" data-tip="I'm on Github">
-    <div class="corner">
-      <a href="https://github.com/jb0gie">
+<a href="https://github.com/jb0gie">
         <img src={github} alt="GitHub" />
-      </a>
-    </div>
-  </div>
-</header>
+      </a> -->
+
+<div class="navbar bg-base-100">
+	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+	<!-- svelte-ignore a11y-label-has-associated-control -->
+	<div class="navbar-start">
+		<div class="dropdown">
+			<label tabindex="0" class="btn btn-ghost btn-circle">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-5 w-5"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 6h16M4 12h16M4 18h7"
+					/></svg
+				>
+			</label>
+			<ul
+				tabindex="0"
+				class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+			>
+				<li><a href="/">Home 🏠</a></li>
+				<li><a href="/about">About 📜</a></li>
+				<li><a href="/connect">Connect 🤙</a></li>
+			</ul>
+		</div>
+		<!-- svelte-ignore a11y-invalid-attribute -->
+	</div>
+		<!-- svelte-ignore a11y-invalid-attribute -->
+	<div class="navbar-center">
+		<a
+			href="#"
+			class="btn btn-ghost normal-case text-xl"
+			on:click={async () => {
+				isVisible = false;
+				await tick();
+				isVisible = true;
+			}}
+			>W3LP, it's CONT3NT. (🪔,🧞)
+		</a>
+		{#if isVisible}
+			<div>
+				<div use:confetti />
+			</div>
+		{/if}
+	</div>
+	<div class="navbar-end">
+		<ThemeToggle />
+	</div>
+</div>
 
 <style>
-  header {
-    display: flex;
-    justify-content: space-between;
-  }
+	:global(body) {
+		overflow: hidden;
+	}
 
-  .corner {
-    width: 4em;
-    height: 3em;
-  }
-
-  .corner a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-  }
-
-  .corner img {
-    width: 2em;
-    height: 2em;
-    object-fit: contain;
-  }
-
-  nav {
-    display: flex;
-    justify-content: center;
-    --background: rgba(255, 255, 255, 0.7);
-  }
-
-  svg {
-    width: 2em;
-    height: 3em;
-    display: block;
-  }
-
-  path {
-    fill: var(--background);
-  }
-
-  ul {
-    position: relative;
-    padding: 0;
-    margin: 0;
-    height: 3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    background: var(--background);
-    background-size: contain;
-  }
-
-  li {
-    position: relative;
-    height: 100%;
-  }
-
-  li[aria-current='page']::before {
-    --size: 6px;
-    content: '';
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 0;
-    left: calc(50% - var(--size));
-    border: var(--size) solid transparent;
-    border-top: var(--size) solid var(--color-theme-1);
-  }
-
-  nav a {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    padding: 0 0.5rem;
-    color: var(--color-text);
-    font-weight: 700;
-    font-size: 1rem;
-    /* text-transform: uppercase; */
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    transition: color 0.2s linear;
-  }
-
-  a:hover {
-    color: var(--color-theme-1);
-  }
+	div {
+		display: flex;
+		justify-content: center;
+	}
 </style>
