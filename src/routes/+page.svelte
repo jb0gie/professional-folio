@@ -10,23 +10,46 @@
   <meta name="description" content="my professional personal page" />
 </svelte:head>
 
-<div class="text-column">
-  <div
-      class="max-w-md mx-auto justify-center items-center flex flex-col lg:flex-row"
-    >
-      <img
-        class="h-48 sm:h-48 lg:h-64 rounded-full mb-4 lg:mb-0"
-        src={pfp_closeup}
-        alt="2017 - Kin NYC"
-      />
-      <div class="space-y-4 text-gray-700 text-3xl sm:text-3xl lg:text-3xl">
-        <h1 class="mb-2 sm:mb-6 lg:mb-6">
-          <strong>
-            <em>I am a</em>
-          </strong>
-        </h1>
-        <div class="pt-6 font-bold sm:text-2xl lg:text-2xl">
-          <h2 class="text-center mb-2 sm:mb-4 lg:mb-6">
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content">
+    <div class="avatar">
+      <div
+        class="w-64 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+      >
+        <img src={pfp_closeup} alt="2017 - Kin NYC" />
+      </div>
+    </div>
+
+    <div class="max-w-md px-12">
+      <div class="mockup-code">
+        <pre data-prefix="$"><code>npx i am-me -pro --folio</code></pre>
+        <pre
+          data-prefix=">"
+          class="text-warning"><code>installing...</code></pre>
+        <pre data-prefix=">" class="text-success"><code>Done!</code></pre>
+        <br />
+        <pre data-prefix=">"><code>I am a</code></pre>
+        <pre data-prefix=">"><code style="color: transparent; background-clip: text; -webkit-background-clip: text; 
+                background-image: url('https://i.giphy.com/media/ToMjGpAzmvYWQYWQn8Q/giphy.webp');">technical</code> <code style="color: transparent; background-clip: text; -webkit-background-clip: text; background-image: url('https://i.giphy.com/media/l3vReuFsyO7j8HVLO/giphy.webp');">savant</code>
+        </pre>
+        <pre data-prefix=">"><code><a href="/about" class="link link-hover">learn more </a></code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+
+
+
+
+<div class="relative py-3 sm:max-w-xl sm:mx-auto">
+  <div class="relative px-4 py-10 rounded-3xl p-20 sm:p-12 lg:p-16">
+    <div class="pt-6 font-bold sm:text-lg lg:text-xl">
+      <h1 class="text-center mb-2 sm:mb-6 sm:text-2xl lg:mb-6" lg:text-3xl>
+        
+      </h1>
+      <h2 class="text-center mb-2 sm:mb-4 sm:text-2xl lg:mb-6 lg:text-6xl">
             <span
               style="
                 color: transparent;
@@ -47,23 +70,15 @@
               savant
             </strong>
           </h2>
-        </div>
-        <div class="pt-6 font-bold sm:text-lg lg:text-xl">
-          <p class="text-right">
-            <a href="/about" class="hover:">more on me &rarr; 🔎</a>
-          </p>
-        </div>
-      </div>
-    </div>
-</div>
-
-<div class="relative py-3 sm:max-w-xl sm:mx-auto">
-  <div class="relative px-4 py-10 rounded-3xl p-20 sm:p-12 lg:p-16">
-    
+      <p class="text-right">
+        <a href="/about" class="hover:">more on me &rarr; 🔎</a>
+      </p>
+    </div>  
   </div>
-</div>
+</div> -->
 
-<!-- this will replace the scene once i know more 
+<!-- this will replace the scene once i know more -->
+<!--
   <Canvas>
   <MainThrene />
 </Canvas> -->

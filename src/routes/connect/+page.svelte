@@ -28,20 +28,89 @@
   <title>Let's connect</title>
 </svelte:head>
 
-<br />
-<br />
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="avatar">
+      <div
+        class="w-64 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+      >
+        <img src={pfp_closeup} alt="2017 - Kin NYC" />
+      </div>
+    </div>
+    <div class="text-center ">
+      <h1 class="text-5xl font-bold">
+        <code
+          style="color: transparent; background-clip: text; -webkit-background-clip: text; 
+                background-image: url('https://i.giphy.com/media/3og0IH1Y3JD3Ybwphe/giphy.webp');"
+        >
+          Let's
+        </code>
+        <code
+          style="color: transparent; background-clip: text; -webkit-background-clip: text; background-image: url('https://i.giphy.com/media/5xtDarAhnwnse0JQP28/giphy.webp');"
+        >
+          Connect
+        </code>
+      </h1>
+      <p class="py-6">
+        Fill the form if you want to connect. Thanks for viewing this site.
+      </p>
+    </div>
+    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div class="card-body">
+        <form on:submit|preventDefault={handleSubmit}>
+          <input
+            type="hidden"
+            name="access_key"
+            value="7a2c25e5-667c-4619-9971-c1324332cdd0"
+          />
+          <div class="form-control">
+            <!-- svelte-ignore a11y-label-has-associated-control -->
+            <label class="label">
+              <span class="label-text">What is your name ❓</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Insert name here"
+              class="input input-bordered"
+            />
+          </div>
+          <div class="form-control">
+            <!-- svelte-ignore a11y-label-has-associated-control -->
+            <label class="label">
+              <span class="label-text">What is your email ❓</span>
+            </label>
+            <input
+              type="text"
+              placeholder="email@email.here"
+              class="input input-bordered"
+            />
+          </div>
+          <div class="form-control">
+            <label
+              for="message"
+              class="text-white-900 font-bold py-2 px-4 rounded-full"
+            >
+              Insert message here 📝
+            </label>
+            <textarea
+              name="message"
+              required
+              rows="3"
+              class="input input-bordered "
+            />
+          </div>
+          <div class="form-control mt-6">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        <div>{status}</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="card lg:card-side bg-base-100 shadow-xl">
-  <figure><img src={pfp_closeup} alt="Album"/></figure>
-  <div class="card-body">
-    <h2 class="card-title">New album is released!</h2>
-    <p>Click the button to listen on Spotiwhy app.</p>
-    <form on:submit|preventDefault={handleSubmit}>
-        <input
-          type="hidden"
-          name="access_key"
-          value="7a2c25e5-667c-4619-9971-c1324332cdd0"
-        />
+<!-- 
+    
         <div class="flex flex-row">
           <label for="name" class="font-bold py-2 px-4 rounded-full">
             What is your name ❓
@@ -87,111 +156,9 @@
         />
       </form>
 
-      <div>{status}</div>
+      
     <div class="card-actions justify-end">
       <button class="btn btn-primary">Listen</button>
     </div>
   </div>
-</div>
-
-<!-- <div class="text-column">
-  <div
-    class="max-w-md mx-auto justify-center items-center flex flex-col lg:flex-row"
-  >
-    <div class="space-y-4 text-gray-700 text-2xl sm:text-2xl lg:text-3xl">
-      <div class="pt-6 font-bold sm:text-2xl lg:text-2xl">
-        <h1
-          class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200"
-        >
-          <strong
-            style=" color: transparent; 
-                    background-clip: text;
-            -webkit-background-clip: text;
-            background-image: url('https://media2.giphy.com/media/JlVxiw2MrW4DwKeG4e/giphy.gif?cid=ecf05e47havsfdo7vnub33cofwhw8suyhqvh1e5t1wr1veb4&rid=giphy.gif&ct=g');"
-          >
-            Let's
-          </strong>
-          <strong
-            style=" color: transparent;
-                    background-clip: text;
-            -webkit-background-clip: text;background-image: url('https://media2.giphy.com/media/bTDdkhpX34Hwp1eaiS/200w.webp?cid=ecf05e47havsfdo7vnub33cofwhw8suyhqvh1e5t1wr1veb4&rid=200w.webp&ct=g');"
-          >
-            connect
-          </strong>
-        </h1>
-        <div class="text-center">
-          <p class="text-white-400 dark:text-gray-400">
-            Fill up the form below to send me a message. 📭
-          </p>
-        </div>
-      </div>
-    </div>
-    <img
-      class="h-48 sm:h-48 lg:h-64 rounded-full mb-4 lg:mb-0"
-      src={pfp_closeup}
-      alt="2018"
-    />
-  </div>
-  <div class="my-4 p-5">
-    <div class="text-center m-7">
-      <form on:submit|preventDefault={handleSubmit}>
-        <input
-          type="hidden"
-          name="access_key"
-          value="7a2c25e5-667c-4619-9971-c1324332cdd0"
-        />
-        <div class="flex flex-row">
-          <label for="name" class="font-bold py-2 px-4 rounded-full">
-            What is your name ❓
-          </label>
-          <input
-            type="text"
-            name="name"
-            required
-            class="rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline-blue"
-          />
-        </div>
-        <br />
-        <div class="flex flex-row">
-          <label for="email" class="font-bold py-2 px-4 rounded-full">
-            What is your email ❓
-          </label>
-          <input
-            type="email"
-            name="email"
-            required
-            class="rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline-blue"
-          />
-        </div>
-        <br />
-        <div class="flex flex-row">
-          <label
-            for="message"
-            class="text-white-900 font-bold py-2 px-4 rounded-full"
-          >
-            Insert message here 📝
-          </label>
-          <textarea
-            name="message"
-            required
-            rows="3"
-            class="rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline-blue"
-          />
-        </div>
-        <br />
-        <input
-          type="submit"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-        />
-      </form>
-
-      <div>{status}</div>
-    </div>
-  </div>
 </div> -->
-
-<div class="relative py-3 sm:max-w-xl sm:mx-auto">
-  <div
-    class="max-w-md mx-auto justify-center items-center flex flex-col lg:flex-row"
-  />
-</div>
