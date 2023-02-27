@@ -12,7 +12,7 @@
 		"@dimforge/rapier3d-compat": "^0.10.0",
 		"@fontsource/fira-mono": "^4.5.10",
 		"@neoconfetti/svelte": "^1.0.0",
-		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-auto": "^1.0.0",
 		"@sveltejs/kit": "next",
 		"@tailwindcss/typography": "^0.5.9",
 		"@threlte/core": "^5.0.9",
